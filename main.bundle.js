@@ -794,7 +794,7 @@ var SongComponent = (function () {
         else {
             this.showList = false;
             this.showSong = false;
-            this.renderer.setElementStyle(this.masthead.nativeElement, "top", this.height);
+            this.renderer.setElementStyle(this.masthead.nativeElement, "top", "80px");
         }
         // if(this.searchResult){
         //   this.renderer.setElementStyle(
