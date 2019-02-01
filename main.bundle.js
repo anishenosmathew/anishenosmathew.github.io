@@ -375,7 +375,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- <cuppa-slidemenu\n  [menulist]=\"menuItemsArray\"\n  (open)=\"onMenuOpen()\"\n  (close)=\"onMenuClose()\"\n  (onItemSelect)=\"onItemSelect($event)\"x></cuppa-slidemenu> -->\n\n<!-- Navigation -->\n\n<!-- <nav class=\"navbar navbar-light bg-light static-top\">\n  <div class=\"container\">\n    <a routerLink=\"/home\">\n      <img src=\"../assets/img/mtlogo.png\" width=\"45px\" height=\"47px\" />\n    </a>\n    <a routerLink=\"/home\" class=\"navbar-brand m-auto\">Kristeeya Keerthanangal</a>\n    <div class=\"language pull-right\">\n      <a class=\"btn btn-primary\" href=\"javascript:void()\">Malayalam</a>\n      <a class=\"btn btn-primary\" href=\"javascript:void()\">English</a>\n    </div>\n  </div>\n</nav> -->\n<!-- Navigation -->\n<nav class=\"navbar navbar-light bg-light static-top\">\n  <div class=\"container hamburgerMenu\">\n    <!-- <a routerLink=\"/home\">\n      <img src=\"../assets/img/mtlogo.png\" width=\"45px\" height=\"47px\" />\n    </a> -->\n    <a routerLink=\"/home\" class=\"navbar-brand m-auto\">Kristeeya Keerthanangal</a>\n    <!-- <div class=\"language pull-right\">\n      <a class=\"btn btn-primary\" href=\"javascript:void()\">Malayalam</a>\n      <a class=\"btn btn-primary\" href=\"javascript:void()\">English</a>\n    </div> -->\n  </div>\n</nav>\n\n<app-song [footerHeight]=\"footerHeight1\"></app-song>\n\n<!-- Footer -->\n<footer #footer class=\"footer bg-light\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-lg-6 h-100 text-center text-lg-left my-auto pages\">\n        <ul class=\"list-inline mb-2\">\n          <li class=\"list-inline-item\">\n            <a href=\"javascript:void()\" routerLink=\"/home\">Home</a>\n          </li>\n          <!-- <li class=\"list-inline-item colorWhite\">&sdot;</li> -->\n          <!-- <li class=\"list-inline-item\">\n            <a href=\"javascript:void()\" routerLink=\"/about\">About</a>\n          </li> -->\n          <li class=\"list-inline-item colorWhite\">&sdot;</li>\n          <li class=\"list-inline-item\">\n            <a href=\"javascript:void()\" routerLink=\"/contact\">Contact</a>\n          </li>\n        </ul>\n        <!-- <p class=\"text-muted small mb-2 mb-lg-0\">\n          &copy; Mar Thoma Syrian Church of Malabar. All Rights Reserved.\n        </p> -->\n      </div>\n      <div class=\"col-lg-6 h-100 text-center text-lg-right my-auto social\">\n        <ul class=\"list-inline mb-0\">\n          <li class=\"list-inline-item mr-3\">\n            <a href=\"https://www.facebook.com/sharer/sharer.php?u=http://kristeeyakeerthanangal.com\" target=\"_blank\">\n              <i class=\"fa fa-facebook fa-2x fa-fw\"></i>\n            </a>\n          </li>\n          <li class=\"list-inline-item mr-3\">\n            <a href=\"https://twitter.com/intent/tweet?url=http://kristeeyakeerthanangal.com&text=Kristeeya Keerthanangal\" target=\"_blank\"> \n              <i class=\"fa fa-twitter fa-2x fa-fw\"></i> </a>\n          </li>\n          <li class=\"list-inline-item\">\n              <a href=\"https://wa.me/?text=http://kristeeyakeerthanangal.com\">\n                <i class=\"fa fa-whatsapp fa-2x fa-fw\"></i>\n              </a>\n            </li>\n        </ul>\n      </div>\n    </div>\n  </div>\n</footer>\n"
+module.exports = "\n<div id=\"page-wrapper\">\n\n    <!-- Header -->\n      <div id=\"header\">\n\n        <!-- Nav -->\n          <nav id=\"nav\">\n            <ul>\n              <li class=\"opener\" style=\"user-select: none; cursor: pointer; white-space: nowrap;\">\n                <a href=\"#\">Kristheeya Keerthanangal</a>    \n              </li>\n            </ul>\n          </nav>\n\n      </div>\n\n    <!-- Banner -->\n      <section id=\"banner\">\n          <app-song (clearText)=\"clearText($event)\" (showSongFlag)=\"showSongFlag($event)\" (songUrl)=\"songUrl($event)\"></app-song>\n      </section>\n\n    <!-- Highlights -->\n      <section class=\"wrapper style1\">\n          <section *ngIf=\"showSong\" class=\"container songContainer\">\n            <div class=\"song-box\">\n                <img class=\"song-image\" src=\"{{song.url}}\"/>\n              <!-- <div [innerHTML]=\"song._body\"></div> -->\n              <!-- <img [src]=\"song\" /> -->\n            </div>\n          </section>\n          <div class=\"container aboutSection\">\n            <div class=\"row gtr-200\">\n\n              <section class=\"col-4 col-12-narrower\">\n                <div class=\"box highlight\">\n                  <i class=\"icon major fa-list\"></i>\n                  \n                  <h3>Song List</h3>\n<pre>\n1. Athi ravile thiru sannidhi    \n2. Parane thiru mugha shobhayin\n3. Vandanam ponneshu nadha\n4. Unaruka neyen aatmave\n5. Maname pakshi ganangal uyarnnitha\n6. Ushakaalam naam ezhunelkkuka\n7. Aatmave unaruka\n8. Koode parkka neram vaikunnitha\n9. En aatmavin aadhithyane\n10. Innu pakalilenne\n                  </pre>\n                  <pre>&lt;&lt;  &lt;  1  2  3  4  5  6  7  8  9  10  &gt;  &gt;&gt; </pre>  \n                \n                </div>\n              </section>\n\n              <section class=\"col-4 col-12-narrower\">\n                <div class=\"box highlight\">\n                  <i class=\"icon major fa-signal\"></i>\n                  <h3>Most viewed song of the week</h3>\n                  <p>1 - Athi ravile thiru sannidhi - <b>230</b> views </p> \n                </div>\n              </section>\n\n              <section class=\"col-4 col-12-narrower\">\n                  <div class=\"box highlight\">\n                    <i class=\"icon major fa-music\"></i>\n                    <h3>About</h3>\n                    <p>This website provides the complete collection of songs from \n                      Marthoma Syrian church's Kristheeya Keerthanangal song book. \n                      Search for your favorite song or choose from the list above.\n                      </p>\n                  </div>\n                </section>\n\n            </div>\n          </div>\n      </section>\n\n\n    <!-- Footer -->\n      <div id=\"footer\">\n\n        <div class=\"container\">\n          <div class=\"row\">\n            <section class=\"col-12\">\n              <h3>Get In Touch</h3>\n              <form *ngIf=\"!submitted\" #newUserForm=\"ngForm\" (ngSubmit)=\"onSubmit(newUserForm)\">\n                <div class=\"row gtr-50\">\n                  <div class=\"col-6 col-12-mobilep\">\n                    <input type=\"text\" name=\"name\" id=\"userName\" [(ngModel)]=\"userName\"  placeholder=\"Name\">\n                  </div>\n                  <div class=\"col-6 col-12-mobilep\">\n                    <input type=\"email\" name=\"email\" id=\"email\" [(ngModel)]=\"email\" placeholder=\"Email\">\n                  </div>\n                  <div class=\"col-12\">\n                    <textarea [(ngModel)]=\"comment\" name=\"comment\"  id=\"message\" placeholder=\"Message\" rows=\"5\"></textarea>\n                  </div>\n                  <div class=\"col-12\">\n                    <ul class=\"actions\">\n                      <li><input type=\"submit\" class=\"button primary\" value=\"Send Message\"></li>\n                    </ul>\n                  </div>\n                </div>\n              </form>\n               <div *ngIf=\"thanks\">Thank you for your feedback.</div>\n            </section>\n          </div>\n        </div>\n\n\n        <!-- Icons -->\n          <ul class=\"icons\">\n            <li><a href=\"#\" class=\"icon fa-twitter\"><span class=\"label\">Twitter</span></a></li>\n            <li><a href=\"#\" class=\"icon fa-facebook\"><span class=\"label\">Facebook</span></a></li>\n            <li><a href=\"#\" class=\"icon fa-github\"><span class=\"label\">GitHub</span></a></li>\n            <li><a href=\"#\" class=\"icon fa-linkedin\"><span class=\"label\">LinkedIn</span></a></li>\n            <li><a href=\"#\" class=\"icon fa-google-plus\"><span class=\"label\">Google+</span></a></li>\n          </ul>\n\n        <!-- Copyright -->\n          <div class=\"copyright\">\n            <ul class=\"menu\">\n              <li>© Untitled. All rights reserved</li><li>Design: <a href=\"http://html5up.net\">HTML5 UP</a></li><li>Demo /assets/images: <a href=\"http://unsplash.com\">Unsplash</a></li>\n            </ul>\n          </div>\n\n      </div>\n\n  </div>\n\n<ul class=\"dropotron level-0\" style=\"user-select: none; display: none; position: absolute; z-index: 1000;\">\n  <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Lorem dolor</a></li>\n  <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Magna phasellus</a></li>\n  <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Etiam sed tempus</a></li>\n  <li class=\"opener\" style=\"user-select: none; cursor: pointer; white-space: nowrap;\">\n    <a href=\"#\" style=\"display: block;\">Submenu</a>\n    <ul class=\"dropotron level-1\" style=\"user-select: none; display: none; position: absolute; z-index: 1001;\">\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Lorem dolor</a></li>\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Phasellus magna</a></li>\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Magna phasellus</a></li>\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Etiam nisl</a></li>\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Veroeros feugiat</a></li>\n    </ul>\n  </li>\n  <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Veroeros feugiat</a></li>\n</ul>\n<div id=\"titleBar\"><span class=\"title\">\n  <em>Kristheeya Keerthanangal</em>\n</span>\n</div>\n<div id=\"navPanel\">\n  <nav>\n    <a class=\"link depth-0\" href=\"#\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0);\">\n      <span class=\"indent-0\"></span>Dropdown\n    </a>\n  </nav>\n</div>\n"
 
 /***/ }),
 
@@ -385,6 +385,7 @@ module.exports = "<!-- <cuppa-slidemenu\n  [menulist]=\"menuItemsArray\"\n  (ope
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_service__ = __webpack_require__("../../../../../src/app/app.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -395,12 +396,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HomeComponent = (function () {
-    function HomeComponent(renderer) {
+    function HomeComponent(renderer, appService) {
         this.renderer = renderer;
+        this.appService = appService;
+        this.submitted = false;
     }
     HomeComponent.prototype.ngOnInit = function () {
-        this.footerHeight1 = this.footer.nativeElement.offsetHeight;
+        //this.footerHeight1 = this.footer.nativeElement.offsetHeight;
         this.menuItemsArray = [
             {
                 title: "Change language",
@@ -434,6 +438,29 @@ var HomeComponent = (function () {
         //this.onMenuClose();
         console.log(item);
     };
+    HomeComponent.prototype.clearText = function (showFlag) {
+        //debugger;
+        this.showSong = showFlag;
+    };
+    HomeComponent.prototype.showSongFlag = function (showFlag) {
+        //debugger;
+        this.showSong = showFlag;
+    };
+    HomeComponent.prototype.songUrl = function (songUrl) {
+        this.song = songUrl;
+    };
+    HomeComponent.prototype.onSubmit = function (form) {
+        if (form.valid) {
+            var googleDocsUrl = "https://docs.google.com/forms/d/e/1FAIpQLSe8huDih07_owHAGLCwQ7Ql78PkaS2hT5wjnT1wg2MhVzae2w/formResponse?";
+            var name_1 = form.value.userName;
+            var email = form.value.email;
+            var comment = form.value.comment;
+            var URL_1 = googleDocsUrl + "entry.2005620554=" + name_1 + "&entry.1045781291=" + email + "&entry.839337160=" + comment;
+            this.appService.contactusSubmit(URL_1).subscribe();
+            this.submitted = true;
+            this.thanks = true;
+        }
+    };
     HomeComponent.prototype.ngAfterViewInit = function () {
         // this.renderer.invokeElementMethod(
         //   this.searchFocus.nativeElement,
@@ -450,7 +477,7 @@ var HomeComponent = (function () {
             styles: [__webpack_require__("../../../../../src/app/home/home.component.css")],
             encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewEncapsulation"].None
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], __WEBPACK_IMPORTED_MODULE_1__app_service__["a" /* AppService */]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -585,7 +612,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/song/song.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Masthead -->\n<header #masthead class=\"masthead text-white text-center\">\n  <div class=\"container\">\n    <div class=\"row\">\n      <div class=\"col-md-10 col-lg-8 col-xl-7 m-auto\">\n        <div class=\"col-12 mb-2 mb-md-0 m-auto color searchInput-wrapper\">\n          <div class=\"searchInput\">\n            <input #searchFocus type=\"text\"\n              name=\"term\"\n              [(ngModel)]=\"term\"\n              (keyup)=\"searchText()\"\n              class=\"searchInput form-control form-control-lg\"\n              placeholder=\"Search song...\"/>\n            <i (click)=\"clear()\" class=\"closeButton fa fa-times\" aria-hidden=\"true\"></i>\n          </div>\n          <div #searchResult class=\"searchResult\">\n            <ul *ngIf=\"showList && this.term.length > 0\">\n              <!-- <li (click)=\"selectedSong(song)\" *ngFor=\"let song of (songs | filter: term)\" [class.active]=\"i == arrowkeyLocation\">\n               {{ song.title }}\n              </li> -->\n              <li (click)=\"selectedSong(song)\" *ngFor=\"let song of (songs | filter: term)\" [class.active]=\"i == arrowkeyLocation\">\n                <!-- <span [innerHtml]=\"getTitle(song.title,term)\"></span> -->\n                <span [innerHtml]=\"song.title | highlight : term\"></span>\n              </li>\n            </ul>\n          </div>\n\n          <!-- <div ng2-auto-complete class=\"ng2-auto-complete\" [source]=\"arrayOfStrings\" placeholder=\"enter text\">\n                      <input type=\"text\" [(ngModel)]=\"search\" (valueSelected)=\"startSearch()\" class=\"searchInput form-control form-control-lg\" placeholder=\"Search song...\">\n                      <i (click)=\"clear()\" class=\"closeButton fa fa-times\" aria-hidden=\"true\"></i>\n                    </div> -->\n        </div>\n        <!-- <div class=\"col-12 col-md-3\">\n                  <button class=\"btn btn-block btn-lg btn-primary\">Search!</button>\n                </div> -->\n      </div>\n\n      <br />\n      <br />\n\n      <!-- <div class=\"col-md-10 col-lg-8 col-xl-7 m-auto\">\n                <div class=\"btn-group col-12 mb-2 mb-md-0 m-auto\">\n                  <input #searchFocus type=\"text\" [(ngModel)]=\"search\" (keyup)=\"startSearch()\" class=\"searchInput form-control form-control-lg\" placeholder=\"Search song...\">\n                </div>\n                <div class=\"col-12 col-md-3\">\n                  <button class=\"btn btn-block btn-lg btn-primary\">Search!</button>\n                </div>\n            </div> -->\n    </div>\n  </div>\n</header>\n\n<section *ngIf=\"showSong\" class=\"col-md-10 col-lg-8 col-xl-7 m-auto container songContainer\">\n  <div class=\"malayalam\">\n    <!-- <img src=\"../assets/img/athi.png\" width=\"100%\" /> -->\n  </div>\n  <div class=\"col-md-10 col-lg-8 col-xl-7 m-auto english\">\n     <img class=\"song-image\" src=\"{{song.url}}\"/>\n    <!-- <div [innerHTML]=\"song._body\"></div> -->\n    <!-- <img [src]=\"song\" /> -->\n  </div>\n</section>\n"
+module.exports = "<!-- Masthead -->\n<header #masthead class=\"masthead text-white text-center\">\n\n\n          <div class=\"searchInputBox\">\n            <i class=\"searchButton fa fa-search\" aria-hidden=\"true\"></i>\n            <input #searchFocus type=\"text\"\n              name=\"term\"\n              [(ngModel)]=\"term\"\n              (keyup)=\"searchText()\"\n              class=\"searchInput form-control form-control-lg\"\n              placeholder=\"Search song...\"/>\n            <i (click)=\"clear()\" class=\"closeButton fa fa-times-circle-o\" aria-hidden=\"true\"></i>\n          </div>\n          <div #searchResult class=\"searchResult\">\n            <ul *ngIf=\"showList && this.term.length > 0\">\n              <!-- <li (click)=\"selectedSong(song)\" *ngFor=\"let song of (songs | filter: term)\" [class.active]=\"i == arrowkeyLocation\">\n               {{ song.title }}\n              </li> -->\n              <li (click)=\"selectedSong(song)\" *ngFor=\"let song of (songs | filter: term)\" [class.active]=\"i == arrowkeyLocation\">\n                <!-- <span [innerHtml]=\"getTitle(song.title,term)\"></span> -->\n                <span [innerHtml]=\"song.title | highlight : term\"></span>\n              </li>\n            </ul>\n          </div>\n\n          <!-- <header class=\"searchInput\">\n              <i class=\"searchButton fa fa-search\" aria-hidden=\"true\"></i>\n              <input type=\"text\" class=\"search\" placeholder=\"Search song...\">\n              <i aria-hidden=\"true\" class=\"closeButton fa fa-times-circle\"></i>\n            </header> -->\n\n      <!-- <div class=\"col-md-10 col-lg-8 col-xl-7 m-auto\">\n                <div class=\"btn-group col-12 mb-2 mb-md-0 m-auto\">\n                  <input #searchFocus type=\"text\" [(ngModel)]=\"search\" (keyup)=\"startSearch()\" class=\"searchInput form-control form-control-lg\" placeholder=\"Search song...\">\n                </div>\n                <div class=\"col-12 col-md-3\">\n                  <button class=\"btn btn-block btn-lg btn-primary\">Search!</button>\n                </div>\n            </div> -->\n\n</header>\n\n\n"
 
 /***/ }),
 
@@ -612,6 +639,9 @@ var SongComponent = (function () {
         this.appService = appService;
         this.renderer = renderer;
         this.term = '';
+        this.clearText = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.showSongFlag = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
+        this.songUrl = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.songs = [
             { title: '1 - Athi ravile thiru sannidhi' },
             { title: '2 - Parane thiru mugha shobhayin' },
@@ -789,12 +819,10 @@ var SongComponent = (function () {
         //console.log(this.term.length);
         if (this.term.length > 0) {
             this.showList = true;
-            this.renderer.setElementStyle(this.masthead.nativeElement, "top", "80px");
         }
         else {
             this.showList = false;
             this.showSong = false;
-            this.renderer.setElementStyle(this.masthead.nativeElement, "top", "80px");
         }
         // if(this.searchResult){
         //   this.renderer.setElementStyle(
@@ -806,9 +834,12 @@ var SongComponent = (function () {
     };
     SongComponent.prototype.selectedSong = function (s) {
         this.term = s.title;
-        this.showList = true;
+        this.showList = false;
+        this.showSong = true;
         var num = this.term.split("-");
         this.getSong(num[0].trim());
+        //debugger;
+        this.showSongFlag.emit(this.showSong);
     };
     SongComponent.prototype.clear = function () {
         this.term = '';
@@ -816,6 +847,8 @@ var SongComponent = (function () {
         this.showSong = false;
         this.searchText();
         this.searchFocus.nativeElement.focus();
+        //debugger;
+        this.clearText.emit(this.showSong);
     };
     SongComponent.prototype.getSong = function (sn) {
         var _this = this;
@@ -824,6 +857,7 @@ var SongComponent = (function () {
             .subscribe(function (song) {
             _this.song = song;
             _this.showSong = true;
+            _this.songUrl.emit(_this.song);
         });
     };
     SongComponent.prototype.getTitle = function (title, term) {
@@ -847,6 +881,18 @@ var SongComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('searchResult'),
         __metadata("design:type", Object)
     ], SongComponent.prototype, "searchResult", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], SongComponent.prototype, "clearText", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], SongComponent.prototype, "showSongFlag", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
+        __metadata("design:type", Object)
+    ], SongComponent.prototype, "songUrl", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["HostListener"])('window:click', ['$event']),
         __metadata("design:type", Function),
