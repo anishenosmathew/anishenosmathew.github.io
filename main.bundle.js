@@ -164,15 +164,17 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__home_home_component__ = __webpack_require__("../../../../../src/app/home/home.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__song_filterPipe__ = __webpack_require__("../../../../../src/app/song/filterPipe.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__song_highlightPipe__ = __webpack_require__("../../../../../src/app/song/highlightPipe.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_ng2_auto_complete__ = __webpack_require__("../../../../ng2-auto-complete/dist/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_ng2_auto_complete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_ng2_auto_complete__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_cuppa_ng2_slidemenu_cuppa_ng2_slidemenu__ = __webpack_require__("../../../../cuppa-ng2-slidemenu/cuppa-ng2-slidemenu.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_ngx_pagination__ = __webpack_require__("../../../../ngx-pagination/dist/ngx-pagination.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_ng2_auto_complete__ = __webpack_require__("../../../../ng2-auto-complete/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13_ng2_auto_complete___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13_ng2_auto_complete__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_cuppa_ng2_slidemenu_cuppa_ng2_slidemenu__ = __webpack_require__("../../../../cuppa-ng2-slidemenu/cuppa-ng2-slidemenu.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -205,8 +207,9 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormsModule"],
                 __WEBPACK_IMPORTED_MODULE_4__angular_http__["HttpModule"],
-                __WEBPACK_IMPORTED_MODULE_12_ng2_auto_complete__["Ng2AutoCompleteModule"],
-                __WEBPACK_IMPORTED_MODULE_13_cuppa_ng2_slidemenu_cuppa_ng2_slidemenu__["a" /* SlideMenuModule */],
+                __WEBPACK_IMPORTED_MODULE_13_ng2_auto_complete__["Ng2AutoCompleteModule"],
+                __WEBPACK_IMPORTED_MODULE_14_cuppa_ng2_slidemenu_cuppa_ng2_slidemenu__["a" /* SlideMenuModule */],
+                __WEBPACK_IMPORTED_MODULE_12_ngx_pagination__["a" /* NgxPaginationModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* RouterModule */].forRoot([
                     { path: 'about', component: __WEBPACK_IMPORTED_MODULE_7__about_about_component__["a" /* AboutComponent */] },
                     { path: 'contact', component: __WEBPACK_IMPORTED_MODULE_8__contact_contact_component__["a" /* ContactComponent */] },
@@ -259,6 +262,10 @@ var AppService = (function () {
         this.songFile = this.songNumber + ".png";
         this.songUrl = "./assets/songs/" + this.songFile;
         return this._http.get(this.songUrl);
+        // .do(data => console.log('All: ' + JSON.stringify(data)) );
+    };
+    AppService.prototype.getSongs = function () {
+        return this._http.get("./assets/api/songs.json");
         // .do(data => console.log('All: ' + JSON.stringify(data)) );
     };
     AppService.prototype.contactusSubmit = function (url) {
@@ -375,7 +382,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div id=\"page-wrapper\">\n\n    <!-- Header -->\n      <div id=\"header\">\n\n        <!-- Nav -->\n          <nav id=\"nav\">\n            <ul>\n              <li class=\"opener\" style=\"user-select: none; cursor: pointer; white-space: nowrap;\">\n                <a href=\"#\">Kristheeya Keerthanangal</a>    \n              </li>\n            </ul>\n          </nav>\n\n      </div>\n\n    <!-- Banner -->\n      <section id=\"banner\">\n          <app-song (clearText)=\"clearText($event)\" (showSongFlag)=\"showSongFlag($event)\" (songUrl)=\"songUrl($event)\"></app-song>\n      </section>\n\n    <!-- Highlights -->\n      <section class=\"wrapper style1\">\n          <section *ngIf=\"showSong\" class=\"container songContainer\">\n            <div class=\"song-box\">\n                <img class=\"song-image\" src=\"{{song.url}}\"/>\n              <!-- <div [innerHTML]=\"song._body\"></div> -->\n              <!-- <img [src]=\"song\" /> -->\n            </div>\n          </section>\n          <div class=\"container aboutSection\">\n            <div class=\"row gtr-200\">\n\n              <section class=\"col-4 col-12-narrower\">\n                <div class=\"box highlight\">\n                  <i class=\"icon major fa-list\"></i>\n                  \n                  <h3>Song List</h3>\n<pre>\n1. Athi ravile thiru sannidhi    \n2. Parane thiru mugha shobhayin\n3. Vandanam ponneshu nadha\n4. Unaruka neyen aatmave\n5. Maname pakshi ganangal uyarnnitha\n6. Ushakaalam naam ezhunelkkuka\n7. Aatmave unaruka\n8. Koode parkka neram vaikunnitha\n9. En aatmavin aadhithyane\n10. Innu pakalilenne\n                  </pre>\n                  <pre>&lt;&lt;  &lt;  1  2  3  4  5  6  7  8  9  10  &gt;  &gt;&gt; </pre>  \n                \n                </div>\n              </section>\n\n              <section class=\"col-4 col-12-narrower\">\n                <div class=\"box highlight\">\n                  <i class=\"icon major fa-signal\"></i>\n                  <h3>Most viewed song of the week</h3>\n                  <p>1 - Athi ravile thiru sannidhi - <b>230</b> views </p> \n                </div>\n              </section>\n\n              <section class=\"col-4 col-12-narrower\">\n                  <div class=\"box highlight\">\n                    <i class=\"icon major fa-music\"></i>\n                    <h3>About</h3>\n                    <p>This website provides the complete collection of songs from \n                      Marthoma Syrian church's Kristheeya Keerthanangal song book. \n                      Search for your favorite song or choose from the list above.\n                      </p>\n                  </div>\n                </section>\n\n            </div>\n          </div>\n      </section>\n\n\n    <!-- Footer -->\n      <div id=\"footer\">\n\n        <div class=\"container\">\n          <div class=\"row\">\n            <section class=\"col-12\">\n              <h3>Get In Touch</h3>\n              <form *ngIf=\"!submitted\" #newUserForm=\"ngForm\" (ngSubmit)=\"onSubmit(newUserForm)\">\n                <div class=\"row gtr-50\">\n                  <div class=\"col-6 col-12-mobilep\">\n                    <input type=\"text\" name=\"name\" id=\"userName\" [(ngModel)]=\"userName\"  placeholder=\"Name\">\n                  </div>\n                  <div class=\"col-6 col-12-mobilep\">\n                    <input type=\"email\" name=\"email\" id=\"email\" [(ngModel)]=\"email\" placeholder=\"Email\">\n                  </div>\n                  <div class=\"col-12\">\n                    <textarea [(ngModel)]=\"comment\" name=\"comment\"  id=\"message\" placeholder=\"Message\" rows=\"5\"></textarea>\n                  </div>\n                  <div class=\"col-12\">\n                    <ul class=\"actions\">\n                      <li><input type=\"submit\" class=\"button primary\" value=\"Send Message\"></li>\n                    </ul>\n                  </div>\n                </div>\n              </form>\n               <div *ngIf=\"thanks\">Thank you for your feedback.</div>\n            </section>\n          </div>\n        </div>\n\n\n        <!-- Icons -->\n          <ul class=\"icons\">\n            <li><a href=\"#\" class=\"icon fa-twitter\"><span class=\"label\">Twitter</span></a></li>\n            <li><a href=\"#\" class=\"icon fa-facebook\"><span class=\"label\">Facebook</span></a></li>\n            <li><a href=\"#\" class=\"icon fa-github\"><span class=\"label\">GitHub</span></a></li>\n            <li><a href=\"#\" class=\"icon fa-linkedin\"><span class=\"label\">LinkedIn</span></a></li>\n            <li><a href=\"#\" class=\"icon fa-google-plus\"><span class=\"label\">Google+</span></a></li>\n          </ul>\n\n        <!-- Copyright -->\n          <div class=\"copyright\">\n            <ul class=\"menu\">\n              <li>© Untitled. All rights reserved</li><li>Design: <a href=\"http://html5up.net\">HTML5 UP</a></li><li>Demo /assets/images: <a href=\"http://unsplash.com\">Unsplash</a></li>\n            </ul>\n          </div>\n\n      </div>\n\n  </div>\n\n<ul class=\"dropotron level-0\" style=\"user-select: none; display: none; position: absolute; z-index: 1000;\">\n  <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Lorem dolor</a></li>\n  <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Magna phasellus</a></li>\n  <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Etiam sed tempus</a></li>\n  <li class=\"opener\" style=\"user-select: none; cursor: pointer; white-space: nowrap;\">\n    <a href=\"#\" style=\"display: block;\">Submenu</a>\n    <ul class=\"dropotron level-1\" style=\"user-select: none; display: none; position: absolute; z-index: 1001;\">\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Lorem dolor</a></li>\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Phasellus magna</a></li>\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Magna phasellus</a></li>\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Etiam nisl</a></li>\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Veroeros feugiat</a></li>\n    </ul>\n  </li>\n  <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Veroeros feugiat</a></li>\n</ul>\n<div id=\"titleBar\"><span class=\"title\">\n  <em>Kristheeya Keerthanangal</em>\n</span>\n</div>\n<div id=\"navPanel\">\n  <nav>\n    <a class=\"link depth-0\" href=\"#\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0);\">\n      <span class=\"indent-0\"></span>Dropdown\n    </a>\n  </nav>\n</div>\n"
+module.exports = "\n<div id=\"page-wrapper\">\n\n    <!-- Header -->\n      <div id=\"header\">\n\n        <!-- Nav -->\n          <nav id=\"nav\">\n            <ul>\n              <li class=\"opener\" style=\"user-select: none; cursor: pointer; white-space: nowrap;\">\n                <a href=\"http://www.kristheeyakeerthanangal.org\">Kristheeya Keerthanangal</a>    \n              </li>\n            </ul>\n          </nav>\n\n      </div>\n\n    <!-- Banner -->\n      <section id=\"banner\">\n          <app-song #songComponent (clearText)=\"clearText($event)\" (showSongFlag)=\"showSongFlag($event)\" (songUrl)=\"songUrl($event)\"></app-song>\n      </section>\n\n    <!-- Highlights -->\n      <section class=\"wrapper style1\">\n          <section *ngIf=\"showSong\" class=\"container songContainer\">\n            <div class=\"song-box\">\n                <img class=\"song-image\" src=\"{{song}}\">\n              <!-- <div [innerHTML]=\"song._body\"></div> -->\n              <!-- <img [src]=\"song\" /> -->\n            </div>\n          </section>\n          <div class=\"container aboutSection\">\n            <div class=\"row gtr-200\">\n\n              <section class=\"col-4 col-12-narrower\">\n                <div class=\"box highlight songListContainer\">\n                  <i class=\"icon major fa-list\"></i>\n                  \n                  <h3>Song List</h3>\n                  <ul *ngIf=\"songs\">\n                    <li *ngFor=\"let item of songs.songArr | paginate: { itemsPerPage: 10, currentPage: page }\">\n                      <a (click)=\"selectedSong(item)\"> {{ item.title }}</a>\n                    </li>\n                  </ul>\n              \n                \n                </div>\n                <div class=\"pagination\">\n                  <pagination-controls (pageChange)=\"page = $event\"></pagination-controls>\n                </div>\n              </section>\n\n              <section class=\"col-4 col-12-narrower\">\n                <div class=\"box highlight\">\n                  <i class=\"icon major fa-signal\"></i>\n                  <h3>Most viewed song of the week</h3>\n                  <p>1 - Athi ravile thiru sannidhi - <b>230</b> views </p> \n                </div>\n              </section>\n\n              <section class=\"col-4 col-12-narrower\">\n                  <div class=\"box highlight\">\n                    <i class=\"icon major fa-music\"></i>\n                    <h3>About</h3>\n                    <p>This website provides a complete collection of songs from \n                      Malankara Mar Thoma Syrian church's Kristheeya Keerthanangal song book. \n                      Search for your favorite song or choose from the list above.\n                      <br>\n                      Note: Currently the website provides first 150 songs. More songs\n                      coming soon. Stay tuned !\n                      </p>\n                  </div>\n                </section>\n\n            </div>\n          </div>\n      </section>\n\n\n    <!-- Footer -->\n      <div id=\"footer\">\n\n        <div class=\"container\">\n          <div class=\"row\">\n            <section class=\"col-12\">\n              <h3>Get In Touch</h3>\n              <form *ngIf=\"!submitted\" #newUserForm=\"ngForm\" (ngSubmit)=\"onSubmit(newUserForm)\">\n                <div class=\"row gtr-50\">\n                  <div class=\"col-6 col-12-mobilep\">\n                    <input type=\"text\" name=\"name\" id=\"userName\" [(ngModel)]=\"userName\"  placeholder=\"Name\">\n                  </div>\n                  <div class=\"col-6 col-12-mobilep\">\n                    <input type=\"email\" name=\"email\" id=\"email\" [(ngModel)]=\"email\" placeholder=\"Email\">\n                  </div>\n                  <div class=\"col-12\">\n                    <textarea [(ngModel)]=\"comment\" name=\"comment\"  id=\"message\" placeholder=\"Message\" rows=\"5\"></textarea>\n                  </div>\n                  <div class=\"col-12\">\n                    <ul class=\"actions\">\n                      <li><input type=\"submit\" class=\"button primary\" value=\"Send Message\"></li>\n                    </ul>\n                  </div>\n                </div>\n              </form>\n               <div *ngIf=\"thanks\">Thank you for your feedback.</div>\n            </section>\n          </div>\n        </div>\n\n\n        <!-- Icons -->\n          <ul class=\"icons\">\n            <li><a href=\"https://twitter.com/intent/tweet?url=http://www.kristheeyakeerthanangal.org&text=Kristheeya Keerthanangal\" target=\"_blank\" class=\"icon fa-twitter\"><span class=\"label\">Twitter</span></a></li>\n            <li><a href=\"https://www.facebook.com/sharer/sharer.php?u=http://www.kristheeyakeerthanangal.org\" target=\"_blank\" class=\"icon fa-facebook\"><span class=\"label\">Facebook</span></a></li>\n            <li><a href=\"https://wa.me/?text=http://www.kristheeyakeerthanangal.org\" class=\"icon fa fa-whatsapp fa-2x fa-fw\" target=\"_blank\"><span class=\"label\">Whatsapp</span></a></li>\n          </ul>\n\n        <!-- Copyright -->\n          <div class=\"copyright\">\n            <ul class=\"menu\">\n              <li>© Untitled. All rights reserved</li><li>Design: <a href=\"http://html5up.net\">HTML5 UP</a></li><li>Demo /assets/images: <a href=\"http://unsplash.com\">Unsplash</a></li>\n            </ul>\n          </div>\n\n      </div>\n\n  </div>\n\n<ul class=\"dropotron level-0\" style=\"user-select: none; display: none; position: absolute; z-index: 1000;\">\n  <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Lorem dolor</a></li>\n  <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Magna phasellus</a></li>\n  <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Etiam sed tempus</a></li>\n  <li class=\"opener\" style=\"user-select: none; cursor: pointer; white-space: nowrap;\">\n    <a href=\"#\" style=\"display: block;\">Submenu</a>\n    <ul class=\"dropotron level-1\" style=\"user-select: none; display: none; position: absolute; z-index: 1001;\">\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Lorem dolor</a></li>\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Phasellus magna</a></li>\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Magna phasellus</a></li>\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Etiam nisl</a></li>\n      <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Veroeros feugiat</a></li>\n    </ul>\n  </li>\n  <li style=\"white-space: nowrap;\"><a href=\"#\" style=\"display: block;\">Veroeros feugiat</a></li>\n</ul>\n<div id=\"titleBar\"><span class=\"title\">\n  <em>Kristheeya Keerthanangal</em>\n</span>\n</div>\n<div id=\"navPanel\">\n  <nav>\n    <a class=\"link depth-0\" href=\"#\" style=\"-webkit-tap-highlight-color: rgba(0, 0, 0, 0);\">\n      <span class=\"indent-0\"></span>Dropdown\n    </a>\n  </nav>\n</div>\n"
 
 /***/ }),
 
@@ -405,17 +412,13 @@ var HomeComponent = (function () {
     }
     HomeComponent.prototype.ngOnInit = function () {
         //this.footerHeight1 = this.footer.nativeElement.offsetHeight;
-        this.menuItemsArray = [
-            {
-                title: "Change language",
-                link: "#",
-                subItems: [
-                    { title: "Malayalam", link: "#" },
-                    { title: "English", link: "#" },
-                    { title: "English123", link: "#" }
-                ]
-            }
-        ];
+        var _this = this;
+        this.appService.getSongs()
+            .subscribe(function (songs) {
+            //debugger;
+            _this.songs = JSON.parse(songs._body);
+            // console.log(this.songs);
+        });
         /*
         window.addEventListener("orientationchange", function() {
         console.log(window.screen.orientation);
@@ -447,12 +450,17 @@ var HomeComponent = (function () {
         this.showSong = showFlag;
     };
     HomeComponent.prototype.songUrl = function (songUrl) {
-        this.song = songUrl;
+        this.song = songUrl.url;
+        //debugger;
+    };
+    HomeComponent.prototype.selectedSong = function (song) {
+        this.songComponent.selectedSong(song);
+        window.scrollTo(0, 20);
     };
     HomeComponent.prototype.onSubmit = function (form) {
         if (form.valid) {
-            var googleDocsUrl = "https://docs.google.com/forms/d/e/1FAIpQLSe8huDih07_owHAGLCwQ7Ql78PkaS2hT5wjnT1wg2MhVzae2w/formResponse?";
-            var name_1 = form.value.userName;
+            var googleDocsUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdTsvtsOjpJe0ZIRasF5fgfaTJRUXxf6PqDr9zjeb4UfTkGbQ/formResponse?";
+            var name_1 = form.value.name;
             var email = form.value.email;
             var comment = form.value.comment;
             var URL_1 = googleDocsUrl + "entry.2005620554=" + name_1 + "&entry.1045781291=" + email + "&entry.839337160=" + comment;
@@ -471,6 +479,10 @@ var HomeComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])("footer"),
         __metadata("design:type", Object)
     ], HomeComponent.prototype, "footer", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])("songComponent"),
+        __metadata("design:type", Object)
+    ], HomeComponent.prototype, "songComponent", void 0);
     HomeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             template: __webpack_require__("../../../../../src/app/home/home.component.html"),
@@ -612,7 +624,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/song/song.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Masthead -->\n<header #masthead class=\"masthead text-white text-center\">\n\n\n          <div class=\"searchInputBox\">\n            <i class=\"searchButton fa fa-search\" aria-hidden=\"true\"></i>\n            <input #searchFocus type=\"text\"\n              name=\"term\"\n              [(ngModel)]=\"term\"\n              (keyup)=\"searchText()\"\n              class=\"searchInput form-control form-control-lg\"\n              placeholder=\"Search song...\"/>\n            <i (click)=\"clear()\" class=\"closeButton fa fa-times-circle-o\" aria-hidden=\"true\"></i>\n            <div #searchResult class=\"searchResult\" *ngIf=\"showList && this.term.length > 0\">\n                <ul>\n                  <!-- <li (click)=\"selectedSong(song)\" *ngFor=\"let song of (songs | filter: term)\" [class.active]=\"i == arrowkeyLocation\">\n                   {{ song.title }}\n                  </li> -->\n                  <li #listCount (click)=\"selectedSong(song)\" *ngFor=\"let song of (songs | filter: term)\" [class.active]=\"i == arrowkeyLocation\">\n                    <!-- <span [innerHtml]=\"getTitle(song.title,term)\"></span> -->\n                    <span [innerHtml]=\"song.title | highlight : term\"></span>\n                  </li>\n                </ul>\n              </div>\n          </div>\n          \n\n          <!-- <header class=\"searchInput\">\n              <i class=\"searchButton fa fa-search\" aria-hidden=\"true\"></i>\n              <input type=\"text\" class=\"search\" placeholder=\"Search song...\">\n              <i aria-hidden=\"true\" class=\"closeButton fa fa-times-circle\"></i>\n            </header> -->\n\n      <!-- <div class=\"col-md-10 col-lg-8 col-xl-7 m-auto\">\n                <div class=\"btn-group col-12 mb-2 mb-md-0 m-auto\">\n                  <input #searchFocus type=\"text\" [(ngModel)]=\"search\" (keyup)=\"startSearch()\" class=\"searchInput form-control form-control-lg\" placeholder=\"Search song...\">\n                </div>\n                <div class=\"col-12 col-md-3\">\n                  <button class=\"btn btn-block btn-lg btn-primary\">Search!</button>\n                </div>\n            </div> -->\n\n</header>\n\n\n"
+module.exports = "<!-- Masthead -->\n<header #masthead class=\"masthead text-white text-center\">\n\n\n          <div class=\"searchInputBox\">\n            <i class=\"searchButton fa fa-search\" aria-hidden=\"true\"></i>\n            <input #searchFocus type=\"text\"\n              name=\"term\"\n              [(ngModel)]=\"term\"\n              (keyup)=\"searchText()\"\n              class=\"searchInput form-control form-control-lg\"\n              placeholder=\"Search song...\"/>\n            <i (click)=\"clear()\" class=\"closeButton fa fa-times-circle-o\" aria-hidden=\"true\"></i>\n            <div #searchResult class=\"searchResult\" *ngIf=\"showList && this.term.length > 0\">\n                <ul>\n                  <!-- <li (click)=\"selectedSong(song)\" *ngFor=\"let song of (songs | filter: term)\" [class.active]=\"i == arrowkeyLocation\">\n                   {{ song.title }}\n                  </li> -->\n                  <li #listCount (click)=\"selectedSong(song)\" *ngFor=\"let song of (songs.songArr | filter: term)\" [class.active]=\"i == arrowkeyLocation\">\n                    <!-- <span [innerHtml]=\"getTitle(song.title,term)\"></span> -->\n                    <span [innerHtml]=\"song.title | highlight : term\"></span>\n                  </li>\n                </ul>\n              </div>\n          </div>\n          \n\n          <!-- <header class=\"searchInput\">\n              <i class=\"searchButton fa fa-search\" aria-hidden=\"true\"></i>\n              <input type=\"text\" class=\"search\" placeholder=\"Search song...\">\n              <i aria-hidden=\"true\" class=\"closeButton fa fa-times-circle\"></i>\n            </header> -->\n\n      <!-- <div class=\"col-md-10 col-lg-8 col-xl-7 m-auto\">\n                <div class=\"btn-group col-12 mb-2 mb-md-0 m-auto\">\n                  <input #searchFocus type=\"text\" [(ngModel)]=\"search\" (keyup)=\"startSearch()\" class=\"searchInput form-control form-control-lg\" placeholder=\"Search song...\">\n                </div>\n                <div class=\"col-12 col-md-3\">\n                  <button class=\"btn btn-block btn-lg btn-primary\">Search!</button>\n                </div>\n            </div> -->\n\n</header>\n\n\n"
 
 /***/ }),
 
@@ -642,158 +654,6 @@ var SongComponent = (function () {
         this.clearText = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.showSongFlag = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.songUrl = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
-        this.songs = [
-            { title: '1 - Athi ravile thiru sannidhi' },
-            { title: '2 - Parane thiru mugha shobhayin' },
-            { title: '3 - Vandanam ponneshu nadha' },
-            { title: '4 - Unaruka neyen aatmave' },
-            { title: '5 - Maname pakshi ganangal uyarnnitha' },
-            { title: '6 - Ushakaalam naam ezhunelkkuka' },
-            { title: '7 - Aatmave unaruka' },
-            { title: '8 - Koode parkka neram vaikunnitha' },
-            { title: '9 - En aatmavin aadhithyane' },
-            { title: '10 - Innu pakalilenne' },
-            { title: '11 - Karthane ee pakalilenne ne' },
-            { title: '12 - Innu pakal muzhuvan' },
-            { title: '13 - Sandhye sooryastamana mun' },
-            { title: '14 - Teernnu pakal kaalam' },
-            { title: '15 - Aadiyum andyavum illathoru' },
-            { title: '16 - Shudha shudha shudha' },
-            { title: '17 - Mannavane mahonnatha' },
-            { title: '18 - Varika suradhipa paramapara' },
-            { title: '19 - Senayin yahovaye ne' },
-            { title: '20 - Paramadeva nin vilasam' },
-            { title: '21 - Bhoovasikal sarvarume' },
-            { title: '22 - Sarva Maanushare paranu paaadi' },
-            { title: '23 - Varuvin naam yahovakku paaduka' },
-            { title: '24 - Yeshu sannidhi mama bhaagyam' },
-            { title: '25 - Nin thiru mugha shobhaye' },
-            { title: '26 - Aashisham nalkename' },
-            { title: '27 - Anugraha kadale ezhunnalli varika' },
-            { title: '28 - Vannidenam yeshu nadha' },
-            { title: '29 - Vara sundara paramandala' },
-            { title: '30 - Anpu thingum daya parane' },
-            { title: '31 - Aashissam mariyundakum' },
-            { title: '32 - Yeshu nadha neethi soorya' },
-            { title: '33 - Saanidhyam aakenam' },
-            { title: '34 - Deva deva threlokha nadha' },
-            { title: '35 - Yeshuve ee sabhamel' },
-            { title: '36 - Yeshuve dhyanikkumbol njan' },
-            { title: '37 - Yeshu maheshane njan' },
-            { title: '38 - Sree yeshu naamame thirunaamam' },
-            { title: '39 - Yeshu ennulla naamame' },
-            { title: '40 - Ha koodi naamellavarum' },
-            { title: '41 - Maanasame sree' },
-            { title: '42 - Naadha choriyename' },
-            { title: '43 - Sree yeshu naamam athishaya naamam' },
-            { title: '44 - Yeshuvin naamam madhurima naamam' },
-            { title: '45 - Naadhane en yeshuve' },
-            { title: '46 - Hallelujah hallelujah hallelujah' },
-            { title: '47 - Senakalin paran yehova' },
-            { title: '48 - Yeshudeva yeshu naayaka' },
-            { title: '49 - Sthuthippin sthuthippin' },
-            { title: '50 - Deva nandhanana vandhanam' },
-            { title: '51 - Yeshuvine sthuthi ne' },
-            { title: '52 - Sthotram yeshu nadhane' },
-            { title: '53 - Sree yeshu deva sthuthi ninakku' },
-            { title: '54 - Akhilesha nandananu akhilanda nayakanu' },
-            { title: '55 - Yeshu mahonnatane ninakku' },
-            { title: '56 - Vandanam yeshu para' },
-            { title: '57 - Karthavine naam sthuthikka' },
-            { title: '58 - Sthotram shree manuvelane' },
-            { title: '59 - Sthotram cheyyum njanennum' },
-            { title: '60 - Sthotram en yeshu para' },
-            { title: '61 - Sthotram yeshuve sthotram yeshuve' },
-            { title: '62 - Yeshu nadha nin krupakkayi' },
-            { title: '63 - Parishudha parane sthuthi ninakku' },
-            { title: '64 - Aadukalkku vendi jeevane vedinjatam' },
-            { title: '65 - Parama dayalo paadham vandaname' },
-            { title: '66 - Jeevane en jeevane namo namo' },
-            { title: '67 - Ennodulla nin sarva nanmakalkkayi' },
-            { title: '68 - Parama pithave vandanam' },
-            { title: '69 - Vaazthuka ne maname en parane' },
-            { title: '70 - Paadi sthuthi maname parane' },
-            { title: '71 - Vandanam vandanam nadha' },
-            { title: '72 - Manuvela ninakku vandanam' },
-            { title: '73 - Paadum parama rakshakaneshu' },
-            { title: '74 - Vaazhithidunnu vaazhithidunnu' },
-            { title: '75 - Sarva loka srashtavakum' },
-            { title: '76 - Paahimam jagadeeshwara' },
-            { title: '77 - Devanu sadha jaya mangalam' },
-            { title: '78 - Enne veenda rakshakante' },
-            { title: '79 - En aathmave vazhthuka ne' },
-            { title: '80 - Yeshu nayaka sreesha namo' },
-            { title: '81 - Daivathinu sthotram daivathinu sthotram' },
-            { title: '82 - Deva devanu mangalam' },
-            { title: '83 - Paapathin van vishathe ozhippan' },
-            { title: '84 - Ennalum sthuthikkenam' },
-            { title: '85 - Parishudha parane nirandharam' },
-            { title: '86 - Sthuthi sthuthi ninakke' },
-            { title: '87 - Rakshakane ninakku keerthanam' },
-            { title: '88 - Paadham vandhikkunnen thiru krupa' },
-            { title: '89 - Maanuvelin sthuthiye paadiduvan' },
-            { title: '90 - Ellarum yeshu namathe' },
-            { title: '91 - Vaazhthin vaazhthin yeshu rakshakane' },
-            { title: '92 - Sthuthi chey maname' },
-            { title: '93 - Maname pukazhtheedu ne' },
-            { title: '94 - Vandanam cheyteeduvin sree yeshuve' },
-            { title: '95 - Paaduvin sahajare' },
-            { title: '96 - Paadum njan yeshuvinu' },
-            { title: '97 - Paadum njan parameshanu' },
-            { title: '98 - Vaazhthidume vaazhthidume immanuvele' },
-            { title: '99 - Pukazhthin yeshuve pukazhtheen' },
-            { title: '100 - Athishaya karunya maha daivamayone' },
-            { title: '101 - Nitya vandanam ninakku' },
-            { title: '102 - Karunakaranam parane' },
-            { title: '103 - Paradeva swarga puradeva' },
-            { title: '104 - Aaditya chandradhikale' },
-            { title: '105 - Parama pithavinu sthuthi paadam' },
-            { title: '106 - Sthuthicheeduvin keerthanangal' },
-            { title: '107 - Njaanennum sthuthikkum en parane' },
-            { title: '108 - Ennullame sthuthikka ne maname' },
-            { title: '109 - Sthuthi geetham paaduka naam' },
-            { title: '110 - Onnumillaikayil ninnenne' },
-            { title: '111 - Vaazhthen dehi swar raajane' },
-            { title: '112 - Yeshu naamam etra imbam' },
-            { title: '113 - Paadin inpa geetham' },
-            { title: '114 - Nararoodathi sneham poondu' },
-            { title: '115 - Kristavare vandanakkunarin' },
-            { title: '116 - Aattidayar raatri kaale' },
-            { title: '117 - Daivathin raajyam snehathin raajyam' },
-            { title: '118 - Jaathanayi jaathanayinnu' },
-            { title: '119 - Paaridam mangalam' },
-            { title: '120 - Vaagdatha sampoorthiyayi' },
-            { title: '121 - Snehamam deva swargeeya taatha' },
-            { title: '122 - Raja raja daiva rajan' },
-            { title: '123 - Athi mangala kaaranane' },
-            { title: '124 - Narar raksha peduvan' },
-            { title: '125 - Athbudhane yeshu nadha' },
-            { title: '126 - Yeshu innu janichu' },
-            { title: '127 - Bethlehem nal nagariyil' },
-            { title: '128 - Vishwasikale va tushta maanasarai' },
-            { title: '129 - Kelkka dootha salsvaram' },
-            { title: '130 - Yeshuvin jananathe naam' },
-            { title: '131 - Mahiyil maanusha veshameduthu' },
-            { title: '132 - Marudivasam mariya makan' },
-            { title: '133 - Shalemin adhipathi' },
-            { title: '134 - Maanam mahatvam sthotram' },
-            { title: '135 - Hoshanna mahonnathanam' },
-            { title: '136 - Parama tanayanaakum' },
-            { title: '137 - Devesha yeshu para' },
-            { title: '138 - Ayyayyo maha aashcharyam' },
-            { title: '139 - Deva deva nandhanan' },
-            { title: '140 - Daivame en daivame' },
-            { title: '141 - Veenal seeyonkumari' },
-            { title: '142 - Vannen kaalvari kurishathin' },
-            { title: '143 - Enthoranpitappane ee paapimel' },
-            { title: '144 - Daivathinte eka putran' },
-            { title: '145 - Ninakkayen jeevane marakkurishil' },
-            { title: '146 - Krushinmel krushinmel kaanunna' },
-            { title: '147 - Immanuel than changathil' },
-            { title: '148 - Sarva paapa karakal teerthu' },
-            { title: '149 - Pilarnnoru paaraye' },
-            { title: '150 - Mahatva prabhu maricha' }
-        ];
     }
     SongComponent.prototype.keyEvent = function (event) {
         this.showList = false;
@@ -808,12 +668,20 @@ var SongComponent = (function () {
         // };
     };
     SongComponent.prototype.ngOnInit = function () {
+        var _this = this;
         this.showList = false;
         //console.log("window.screen.height: "+window.screen.height);
         //console.log("this.footerHeight: "+ this.footerHeight);
         this.height = (window.screen.height - this.footerHeight - 63) / 2 + "px";
         //console.log("this.height: "+ this.height);    
         this.searchText();
+        //debugger
+        this.appService.getSongs()
+            .subscribe(function (songs) {
+            //debugger;
+            _this.songs = JSON.parse(songs._body);
+            // console.log(this.songs);
+        });
     };
     SongComponent.prototype.searchText = function () {
         //console.log(this.term.length);
