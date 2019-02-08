@@ -462,8 +462,21 @@ var SongComponent = (function () {
         this.term = s.title;
         this.showList = false;
         this.showSong = true;
-        var num = this.term.split("-");
-        this.getSong(num[0].trim());
+        this.num = this.term.split("-");
+        if (this.num[0].trim() == 'DOX10') {
+            this.num[0] = '329';
+        }
+        else if (this.num[0].trim() == 'DOX11') {
+            this.num[0] = '328';
+        }
+        else if (this.num[0].trim() == 'DOX12') {
+            this.num[0] = '427';
+        }
+        else if (this.num[0].trim() == 'DOX13') {
+            this.num[0] = '428';
+        }
+        ;
+        this.getSong(this.num[0].trim());
         this.showSongFlag.emit(this.showSong);
     };
     SongComponent.prototype.clear = function () {
