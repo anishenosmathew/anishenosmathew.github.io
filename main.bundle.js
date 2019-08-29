@@ -501,7 +501,7 @@ var SongComponent = (function () {
         });
     };
     SongComponent.prototype.stopSpinner = function () {
-        this.showSpinner = true;
+        this.showSpinner = false;
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('masthead'),
