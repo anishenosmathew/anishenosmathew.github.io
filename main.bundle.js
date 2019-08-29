@@ -261,11 +261,10 @@ var HomeComponent = (function () {
         });
     };
     HomeComponent.prototype.dosomething = function () {
-        alert(0);
+        console.log(0);
     };
     HomeComponent.prototype.showSongFlag = function (showFlag) {
         this.showSong = showFlag;
-        console.log();
     };
     HomeComponent.prototype.songUrl = function (songUrl) {
         this.song = songUrl.url;
@@ -500,6 +499,7 @@ var SongComponent = (function () {
             _this.showSong = true;
             _this.songUrl.emit(_this.song);
             _this.showSpinner = false;
+            console.log(1);
         });
     };
     __decorate([
