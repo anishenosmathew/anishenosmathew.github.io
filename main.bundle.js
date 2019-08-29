@@ -481,7 +481,7 @@ var SongComponent = (function () {
             this.num[0] = '428';
         }
         ;
-        this.getSong(this.num[0].trim());
+        this.getSong(this.num[0].trim().toLowerCase());
         this.showSongFlag.emit(this.showSong);
     };
     SongComponent.prototype.clear = function () {
