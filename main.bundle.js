@@ -271,6 +271,7 @@ var HomeComponent = (function () {
     };
     HomeComponent.prototype.selectedSong = function (song) {
         this.songComponent.selectedSong(song);
+        this.song = '';
         window.scrollTo(0, 20);
     };
     HomeComponent.prototype.onSubmit = function (form) {
