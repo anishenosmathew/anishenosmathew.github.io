@@ -262,6 +262,7 @@ var HomeComponent = (function () {
     };
     HomeComponent.prototype.showSongFlag = function (showFlag) {
         this.showSong = showFlag;
+        console.log();
     };
     HomeComponent.prototype.songUrl = function (songUrl) {
         this.song = songUrl.url;
