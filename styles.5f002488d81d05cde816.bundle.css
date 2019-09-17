@@ -117,7 +117,7 @@
 
 		/* Button */.button,button,input[type=button],input[type=reset],input[type=submit]{width:100%;display:block}
 
-		/* Box */.box.highlight,.pagination{padding-left:calc(4em + 15px)}.box.post .inner{margin-left:calc(30% + 20px)}.box.post .image{width:30%}
+		/* Box */.box.highlight,.pagination{padding-left:calc(4em + 10px)}.box.post .inner{margin-left:calc(30% + 20px)}.box.post .image{width:30%}
 
 		/* Banner */#banner{height:15em}#banner header{padding:20px}
 
@@ -125,4 +125,4 @@
 
 		/* CTA */#cta{padding:20px}
 
-		/* Footer */#footer{padding:2em 20px;text-align:left}}.spinnerImg{position:absolute;top:350px;left:40%;z-index:6}.overlay{width:100%;position:fixed;height:100%;opacity:.5;top:0;left:0;z-index:5}
+		/* Footer */#footer{padding:2em 20px;text-align:left}}.spinnerImg{position:absolute;top:350px;left:40%;z-index:6}.overlay{width:100%;position:fixed;height:100%;opacity:.5;top:0;left:0;z-index:5}.youtubelogo{background:url(/assets/images/youtube_logo.png) no-repeat;width:26px;height:18px;display:inline-block;line-height:27px;margin:-4px;margin-right:3px;opacity:.7}
