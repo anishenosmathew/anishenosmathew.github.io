@@ -85,7 +85,11 @@
 
 		/* Basic */body,input,select,textarea{font-size:12pt;line-height:1.5em}}
 
-/* Narrower */#navPanel,#titleBar{display:none}@media screen and (max-width:840px){
+/* Narrower */
+
+	/* #navPanel, #titleBar {
+		display: none;
+	} */@media screen and (max-width:1840px){
 
 		/* Basic */body,html{overflow-x:hidden}body,input,select,textarea{font-size:13pt}h1,h2,h3,h4,h5,h6{margin-bottom:.5em}header p{margin-top:-.75em}header.major{text-align:center;margin:0 0 2em 0}header.major h2{font-size:1.75em}header.major p{top:-.25em;font-size:1.25em}
 
